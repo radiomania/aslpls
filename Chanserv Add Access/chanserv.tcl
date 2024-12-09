@@ -21,6 +21,7 @@
 # |                                                                                     |
 # +-------------------------------------------------------------------------------------+
 
+#Required to install - apt install tcllib-critcl
 
 # Define the channel and ChanServ nickname
 set channel "#cebu"
