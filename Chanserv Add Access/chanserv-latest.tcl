@@ -1,6 +1,6 @@
 # +-------------------------------------------------------------------------------------+
 # |                                                                                     |
-# |                   Chanserv Add Access (Aop, SOP) v1.0.0                             |
+# |                   Chanserv Add Access (Aop, SOP) v2.0.0                             |
 # |                                                                                     |
 # +-------------------------------------------------------------------------------------+
 # |                                                                                     |
@@ -56,3 +56,4 @@ proc manage_list {action list_type action_message nick uhost hand chan text} {
     putserv "PRIVMSG $chan :$action_message $user to the $list_type list."
 }
 
+putlog "Chanserv Access Script Made By aslpls"
