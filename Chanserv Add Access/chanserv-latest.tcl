@@ -1,3 +1,28 @@
+# +-------------------------------------------------------------------------------------+
+# |                                                                                     |
+# |                   Chanserv Add Access (Aop, SOP) v1.0.0                             |
+# |                                                                                     |
+# +-------------------------------------------------------------------------------------+
+# |                                                                                     |
+# | *** Website             @  https://www.RadioMania.Rocks                             |
+# | *** GitHub              @  https://github.com/radiomania/aslpls                     |
+# |                                                                                     |
+# +-------------------------------------------------------------------------------------+
+# | *** IRC Support:                                                                    |
+# |                    #aslpls     @ DALnet                                             |
+# |                    #aslpls     @ UnderNET                                           |
+# |                    #aslpls     @ UnderX                                             |
+# |                                                                                     |
+# | *** Contact:                                                                        |
+# |                    Google Mail         : tabiligamer@gmail.com                      |
+# |                                                                                     |
+# |                                                                                     |
+# |                                                                                     |
+# |                                                                                     |
+# +-------------------------------------------------------------------------------------+
+
+#Required to install - apt install tcllib-critcl
+
 # Define the channel and ChanServ nickname
 set channel "#aslpls"
 set chanserv "ChanServ@services.dal.net"
