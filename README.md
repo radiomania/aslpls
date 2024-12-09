@@ -1,4 +1,3 @@
-# aslpls
 Personal Basic TCL Scripts
 PLEASE, keep in mind, this is a work in progess
 
