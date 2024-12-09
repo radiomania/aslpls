@@ -31,10 +31,10 @@ bind pub - "!addaop" add_aop
 bind pub - "!delaop" del_aop
 bind pub - "!addsop" add_sop
 bind pub - "!delsop" del_sop
-bind pub - "!addhop" add_sop
-bind pub - "!delhop" del_sop
-bind pub - "!addvop" add_sop
-bind pub - "!delvop" del_sop
+bind pub - "!addhop" add_hop
+bind pub - "!delhop" del_hop
+bind pub - "!addvop" add_vop
+bind pub - "!delvop" del_vop
 
 
 # Procedure to add a user to the AOP list
