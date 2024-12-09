@@ -24,7 +24,7 @@
 #Required to install - apt install tcllib-critcl
 
 # Define the channel and ChanServ nickname
-set channel "#cebu"
+set channel "#aslpls"
 set chanserv "ChanServ@services.dal.net"
 
 # Bind public commands for AOP and SOP management
@@ -34,8 +34,6 @@ bind pub - "!addsop" add_sop
 bind pub - "!delsop" del_sop
 bind pub - "!addhop" add_hop
 bind pub - "!delhop" del_hop
-bind pub - "!addvop" add_vop
-bind pub - "!delvop" del_vop
 
 
 # Procedure to add a user to the AOP list
@@ -152,42 +150,5 @@ proc del_hop {nick uhost hand chan text} {
     putserv "PRIVMSG $chan :Removed $user from the HalfOp (HOP) list."
 }
 
-# Procedure to add a user to the VOP list
-proc add_vop {nick uhost hand chan text} {
-    global channel chanserv
-
-    if {$chan != $channel} {
-        return
-    }
-
-    set params [split $text]
-    if {[llength $params] < 1} {
-        putserv "PRIVMSG $chan :Usage: !addvop <nickname>"
-        return
-    }
-
-    set user [lindex $params 0]
-    putserv "PRIVMSG $chanserv :VOP $channel ADD $user"
-    putserv "PRIVMSG $chan :Added $user to the VOp (VOP) list."
-}
-
-# Procedure to delete a user from the VOP list
-proc del_hop {nick uhost hand chan text} {
-    global channel chanserv
-
-    if {$chan != $channel} {
-        return
-    }
-
-    set params [split $text]
-    if {[llength $params] < 1} {
-        putserv "PRIVMSG $chan :Usage: !delvop <nickname>"
-        return
-    }
-
-    set user [lindex $params 0]
-    putserv "PRIVMSG $chanserv :VOP $channel DEL $user"
-    putserv "PRIVMSG $chan :Removed $user from the VOp (VOP) list."
-}
 
 putlog "Chanserv Access Script Made By aslpls"
