@@ -23,7 +23,7 @@
 
 
 # Define the channel and ChanServ nickname
-set channel "#aslpls"
+set channel "#cebu"
 set chanserv "ChanServ@services.dal.net"
 
 # Bind public commands for AOP and SOP management
@@ -31,6 +31,11 @@ bind pub - "!addaop" add_aop
 bind pub - "!delaop" del_aop
 bind pub - "!addsop" add_sop
 bind pub - "!delsop" del_sop
+bind pub - "!addhop" add_sop
+bind pub - "!delhop" del_sop
+bind pub - "!addvop" add_sop
+bind pub - "!delvop" del_sop
+
 
 # Procedure to add a user to the AOP list
 proc add_aop {nick uhost hand chan text} {
@@ -108,6 +113,80 @@ proc del_sop {nick uhost hand chan text} {
     putserv "PRIVMSG $chan :Removed $user from the SuperOp (SOP) list."
 }
 
+# Procedure to add a user to the HOP list
+proc add_hop {nick uhost hand chan text} {
+    global channel chanserv
 
+    if {$chan != $channel} {
+        return
+    }
 
-putlog "Chanserv Add/Delete AOP-SOP Access Script Made By aslpls"
+    set params [split $text]
+    if {[llength $params] < 1} {
+        putserv "PRIVMSG $chan :Usage: !addhop <nickname>"
+        return
+    }
+
+    set user [lindex $params 0]
+    putserv "PRIVMSG $chanserv :HOP $channel ADD $user"
+    putserv "PRIVMSG $chan :Added $user to the HalfOp (HOP) list."
+}
+
+# Procedure to delete a user from the HOP list
+proc del_hop {nick uhost hand chan text} {
+    global channel chanserv
+
+    if {$chan != $channel} {
+        return
+    }
+
+    set params [split $text]
+    if {[llength $params] < 1} {
+        putserv "PRIVMSG $chan :Usage: !delhop <nickname>"
+        return
+    }
+
+    set user [lindex $params 0]
+    putserv "PRIVMSG $chanserv :HOP $channel DEL $user"
+    putserv "PRIVMSG $chan :Removed $user from the HalfOp (HOP) list."
+}
+
+# Procedure to add a user to the VOP list
+proc add_vop {nick uhost hand chan text} {
+    global channel chanserv
+
+    if {$chan != $channel} {
+        return
+    }
+
+    set params [split $text]
+    if {[llength $params] < 1} {
+        putserv "PRIVMSG $chan :Usage: !addvop <nickname>"
+        return
+    }
+
+    set user [lindex $params 0]
+    putserv "PRIVMSG $chanserv :VOP $channel ADD $user"
+    putserv "PRIVMSG $chan :Added $user to the VOp (VOP) list."
+}
+
+# Procedure to delete a user from the VOP list
+proc del_hop {nick uhost hand chan text} {
+    global channel chanserv
+
+    if {$chan != $channel} {
+        return
+    }
+
+    set params [split $text]
+    if {[llength $params] < 1} {
+        putserv "PRIVMSG $chan :Usage: !delvop <nickname>"
+        return
+    }
+
+    set user [lindex $params 0]
+    putserv "PRIVMSG $chanserv :VOP $channel DEL $user"
+    putserv "PRIVMSG $chan :Removed $user from the VOp (VOP) list."
+}
+
+putlog "Chanserv Access Script Made By aslpls"
